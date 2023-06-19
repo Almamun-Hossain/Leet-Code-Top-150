@@ -37,7 +37,7 @@ var removeDuplicates = function (nums) {
 /**
  * * Second Solution
  * ? Set structure with two pointers
- * @param {nums[]} nums 
+ * @param {nums[]} nums
  * @returns {num}
  */
 
@@ -58,39 +58,37 @@ var removeDuplicates2 = function (nums) {
   return i;
 };
 
-
 /**
  * * Third Solution
  * ? Single pointer
  */
 
-function removeDuplicates3 (nums){
-     let count= 0;
-     for(let i=0;i<nums.length; i++){
-          if(nums[i] !== nums[count]){
-               count++;
-               nums[count] = nums[i]
-          }
-     }
+function removeDuplicates3(nums) {
+  let count = 0;
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] !== nums[count]) {
+      count++;
+      nums[count] = nums[i];
+    }
+  }
 
-     return count+1;
+  return count + 1;
 }
-
 
 /**
  * * Fourth Solution
  * ? Set data stucture
  */
 
-function removeDuplicates4(nums){
-     let uniqueNums = [...new Set(nums)];
-     nums.length = uniqueNums.length;
+function removeDuplicates4(nums) {
+  let uniqueNums = [...new Set(nums)];
+  nums.length = uniqueNums.length;
 
-     for(let i=0;i<uniqueNums.length; i++){
-          nums[i] = uniqueNums[i];
-     }
+  for (let i = 0; i < uniqueNums.length; i++) {
+    nums[i] = uniqueNums[i];
+  }
 
-     return uniqueNums.length;
+  return uniqueNums.length;
 }
 
 /**
@@ -98,6 +96,14 @@ function removeDuplicates4(nums){
  * ? Array slice mehtod
  */
 
-function removeDuplicates5(nums){
-     
+function removeDuplicates5(nums) {
+  let i = 0;
+  while (i < nums.length - 1) {
+    if (nums[i] === nums[i + 1]) {
+      nums.splice(i + 1, 1);
+    } else {
+      i++;
+    }
+  }
+  return nums.length;
 }
